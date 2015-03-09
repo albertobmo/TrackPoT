@@ -29,13 +29,14 @@ public class TrajectoriesTest {
 		Document document = builder.parse("settings.xml");
 		document.getDocumentElement().normalize();
 		
+		//Open settings
 		NodeList settings = document.getElementsByTagName("video");
 		Element setVideo = (Element) settings.item(0);
 		String path = setVideo.getAttribute("path");
 		String file = setVideo.getAttribute("file");
 		
+		//Open video
 		video.open(path+file);
-		
 		if (!video.isOpened()) {
 			System.out.println("Error. Can not be open video");
 			return;
